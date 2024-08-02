@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS FlexBox 1</title>
+
+    <style>
+
+        /*
+            flexbox : 
+                - 요소의 사이즈가 불명확하거나 반응형 웹을 구축할 떄 유연한 레이아웃을 실현 가능하게 함
+                - 복잡한 레이아웃을 간단하게 표현 가능
+                - 1차원 레이아웃에 적합
+
+                - 장점 :
+                - 1줄의 코드로 수평, 수직 정렬 가능
+                - 요소간 상하좌우 정렬, 순서 변경이 용이함
+                - 요소간 간격조절이 편리함
+        */ 
+
+        /*
+            flexbox container : flex item을 자식으로 가지는 부모 요소, display의 속성값을 flex 혹은 inline-flex로 지정하여 사용 가능
+                - flex : flex container를 block 레벨 요소로 지정
+                - inline-flex : flex container를 inline 레벨 요소로 지정
+        */
+        .flex-container {
+            background-color: rgb(252, 184, 195);
+            display: flex;
+        }
+        .inline-flex-container {
+            background-color: rgb(154, 235, 154);
+            display: inline-flex;
+        }
+        
+
+
+
+        /*
+            flexbox container 속성
+        */
+
+        /*
+            flex-direction 속성 : flex-container의 주축 방향을 지정
+                - row : 좌에서 우로 수평 배치 (기본값)
+                - row-reverse : 우에서 좌로 수평 배치
+                - column : 위에서 아래로 수직 배치
+                - column-revers : 아래에서 위로 수직 배치
+        */
+        .flex-item-sample {
+            width: 200px;
+            padding: 25px;
+            text-align: center;
+            border: 1.2px solid black;
+        }
+
+        .flex-row-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-direction: row;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-row-reverse-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-direction: row-reverse;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-column-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-direction: column;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-column-reverse-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-direction: column-reverse;
+            color: rgb(248, 107, 131);
+        }
+        
+
+
+        /*
+            flex-wrap 속성 : flex-container의 범위를 초과하는 flex item울 하나의 행에 표현할지 여러 행에 표현할지 지정
+                - nowrap : flex item의 행을 바꾸지 않음 (기본값)
+                - wrap : flex item의 행을 바꿈
+                - wrap-reverse : flex item의 행을 바꿈, 새로운 행을 위로 배치
+        */
+        .flex-nowrap-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-wrap: nowrap;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-wrap-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-wrap: wrap;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-wrap-reverse-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            flex-wrap: wrap-reverse;
+            color: rgb(248, 107, 131);
+        }
+
+
+        /*
+            justify-content 속성 : *주 축* 기준으로 felx-item 정렬
+                - flex-start : 주 축의 시작점 기준으로 정렬 (기본값)
+                - flex-end : 주 축의 종료점 기준으로 정렬
+                - center : 주 축의 중앙 기준으로 정렬
+                - space-between : 첫번째 아이템과 마지막 아이템을 각각 시작점과 종료점에 붙이고 균등한 간격을 가지게 나모지 아이템을 배치
+                - space-around : 모든 아이템의 좌 우측 간격을 동일하게 정렬
+        */
+
+        .flex-j-start-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            justify-content: flex-start;
+            color: rgb(248, 107, 131)
+        }
+
+        .flex-j-end-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            justify-content: flex-end;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-j-center-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            justify-content: center;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-j-space-between-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            justify-content: space-between;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-j-space-around-container {
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            justify-content: space-evenly;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-a-stretch-container {
+            height: 300px;
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            align-items: str;
+            color: rgb(248, 107, 131);
+        }
+        .flex-a-start-container {
+            height: 300px;
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            align-items: flex-start;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-a-end-container {
+            height: 300px;
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            align-items: flex-end;
+            color: rgb(248, 107, 131);
+        }
+
+        .flex-a-center-container {
+            height: 300px;
+            background-color: rgb(197, 192, 192);
+            display: flex;
+            align-items: center;
+            color: rgb(248, 107, 131);
+            gap: 16px;
+        }
+
+        
+
+        /*
+            align-items 속성 : *교차 축* 기준으로 flex-item을 정렬
+                - flex item이 flex container의 교차 축을 모두 매꾸는 높이를 가지게함
+                - flex-start : flex item이 교차축의 시작점으로 정렬
+                - flex-end : flex item이 교차축의 종료점으로 정렬
+                - center : flex item을 교차축의 중앙으로 정렬
+        */
+        
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="flex-container">flex container</div>
+    <div class="inline-flex-container">inline-flex container</div>
+    <div class="inline-flex-container">inline-flex container</div>
+
+    <hr />
+
+    <h2>flex-direction</h2>
+
+    <div class="flex-row-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-row-reverse-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-column-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-column-reverse-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <hr />
+
+    <h2>flex-wrap</h2>
+
+    <div class="flex-nowrap-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+        <div class="flex-item-sample">5</div>
+        <div class="flex-item-sample">6</div>
+        <div class="flex-item-sample">7</div>
+        <div class="flex-item-sample">8</div>
+        <div class="flex-item-sample">9</div>
+        <div class="flex-item-sample">10</div>
+        <div class="flex-item-sample">11</div>
+        <div class="flex-item-sample">12</div>
+        <div class="flex-item-sample">13</div>
+        <div class="flex-item-sample">14</div>
+        <div class="flex-item-sample">15</div>
+        <div class="flex-item-sample">16</div>
+    </div>
+
+    <br />
+
+    <div class="flex-wrap-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+        <div class="flex-item-sample">5</div>
+        <div class="flex-item-sample">6</div>
+        <div class="flex-item-sample">7</div>
+        <div class="flex-item-sample">8</div>
+        <div class="flex-item-sample">9</div>
+        <div class="flex-item-sample">10</div>
+        <div class="flex-item-sample">11</div>
+        <div class="flex-item-sample">12</div>
+        <div class="flex-item-sample">13</div>
+        <div class="flex-item-sample">14</div>
+        <div class="flex-item-sample">15</div>
+        <div class="flex-item-sample">16</div>
+    </div>
+
+    <br />
+
+    <div class="flex-wrap-reverse-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+        <div class="flex-item-sample">5</div>
+        <div class="flex-item-sample">6</div>
+        <div class="flex-item-sample">7</div>
+        <div class="flex-item-sample">8</div>
+        <div class="flex-item-sample">9</div>
+        <div class="flex-item-sample">10</div>
+        <div class="flex-item-sample">11</div>
+        <div class="flex-item-sample">12</div>
+        <div class="flex-item-sample">13</div>
+        <div class="flex-item-sample">14</div>
+        <div class="flex-item-sample">15</div>
+        <div class="flex-item-sample">16</div>
+    </div>
+
+    <hr />
+
+    <h2>justify-content</h2>
+
+    <div class="flex-j-start-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-j-end-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-j-center-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-j-space-between-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-j-space-around-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <hr />
+
+    <h2>align-items</h2>
+
+    <div class="flex-a-stretch-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-a-start-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-a-end-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+    <br />
+
+    <div class="flex-a-center-container">
+        <div class="flex-item-sample">1</div>
+        <div class="flex-item-sample">2</div>
+        <div class="flex-item-sample">3</div>
+        <div class="flex-item-sample">4</div>
+    </div>
+
+</body>
+</html>
