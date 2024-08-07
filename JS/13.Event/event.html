@@ -23,7 +23,7 @@
     <script>
 
         /*
-            이벤트 : 
+            이벤트 : 브라우저에 특정한 조작이 발생하는 것 (사용자와의 상호작용)
         */
 
         /*
@@ -32,51 +32,51 @@
 
         /*
             UI Event
-            - load : 
-            - unload : 
-            - error : 
-            - resize : 
-            - scroll : 
-            - select : 
+            - load : 웹 페이지의 로드가 완료됐을 때 
+            - unload : 웹 페이지가 언로드 될 때
+            - error : 자바 스크립트 에러가 발생했을 때
+            - resize : 뷰포트의 크기가 변경됐을 때
+            - scroll : 페이지의 스크롤이 움직였을 떄
+            - select : 텍스트를 선택했을 때
         */
 
         /*
             Keyboard Event
-            - keydown : 
-            - keyup : 
-            - keypress : 
+            - keydown : 키보드의 키를 누르고 있을 때
+            - keyup : 누르고 있던 키보드의 키를 땠을 때
+            - keypress : 키보드를 누르고 떘을 때
         */
 
         /*
-            Mouse Event
-            - click : 
-            - dbclikc : 
-            - mousedown : 
-            - mouseup : 
-            - mousemove : 
-            - mouseover : 
-            - mouseout : 
+            Mouse Event >> (터치도 인식 가능하지만, move 형태는 드물기 떄문에 thouchscreen에서는 동작하지 않는다.)
+            - click : 마우스 클릭을 했을 때
+            - dbclikc : 마우스 더블 클릭을 했을 때
+            - mousedown : 마우스를 누르고 있을 때
+            - mouseup : 누르고 있던 마우스를 떘을 때
+            - mousemove : 마우스를 움직일 때
+            - mouseover : 마우스를 요소 위로 올렸을 떄
+            - mouseout : 마우스를 요소 밖으로 내보냈을 때
         */
 
         /*
             Focus Event
-            - focus : 
-            - blur : 
+            - focus : 요소가 포커스를 얻었을 때
+            - blur : 요소가 포커스를 잃었을 떄
         */
 
         /*
             Form Event
-            - input : 
-            - change : 
-            - submit : 
-            - reset : 
+            - input : input 요소 또는 textarea 요소의 값이 변경됐을 때
+            - change : checkbox,radio,select의 상태가 변경됐을 때
+            - submit : form의 submit이 발생했을 때
+            - reset : form의 reset이 발생했을 떄
         */
 
         /*
             Clipboard Event
-            - cut : 
-            - copy : 
-            - paste : 
+            - cut : 컨텐츠를 잘라내기 했을 때
+            - copy : 컨텐츠를 복사했을 때
+            - paste : 컨텐츠를 붙여넣기 했을 떄
         */
 
         /*
@@ -85,28 +85,35 @@
 
         /*
             인라인 이벤트 핸들러 방식
-            - 
+            - HTML 요소(시작태그)에 onEvent 속성으로 이벤트 핸들러를 등록하는 방법
         */
+        function onButtonClickHandler() {
+            alert('인라인 이벤트 핸들러 방식'); 
+        }
         
         
+
 
         console.log('==============================');
 
         /*
             이벤트 핸들러 속성 방식
-            - 
+            - document element의 onEvent 속성으로 등록하는 방법
         */
-        
+        var button2 = document.getElementById('even-handler-prop');
+        button2.onClick = function () {
+            alert('이벤트 핸들러 속성 방식');
+        };
         
 
         console.log('==============================');
 
         /*
             addEventListener 메소드 방식
-            - 
-            - 
+            - document element의 addEventListner(eventname, callback) 메소드를 이용해서 이벤트를 등록
+            -  첫번쨰 매개변수로는 등록할 이벤트 이름 전달, 두번쨰 매개변수로는 해당 이벤트가 발생할 때 호출할 콜백함수
         */
-        
+        varbutton3 = document.getElementById('event-listener')
         
 
         console.log('==============================');
